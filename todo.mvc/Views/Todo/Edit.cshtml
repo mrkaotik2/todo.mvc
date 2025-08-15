@@ -1,0 +1,33 @@
+﻿@model todo.mvc.Models.TodoItem
+
+<!-- Sets the page title dynamically -->
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Todo</h2>
+
+<form asp-action="Edit" method="post">
+    <!-- note the hidden field -->
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Added validation summary tag helper -->
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!-- added CSS class for form -->
+    <div class="form-group">
+        <label>Title</label>
+        <!-- added CSS class for the input -->
+        <input asp-for="Title" class="form-control" />
+        <!-- added validation helper for Title -->
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <!-- added CSS class for form -->
+    <div class="form-group">
+        <label>Is Complete</label>
+        <input asp-for="IsComplete" type="checkbox" />
+    </div>
+    <!-- added CSS class for button -->
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+

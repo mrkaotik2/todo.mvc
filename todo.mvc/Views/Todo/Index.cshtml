@@ -1,0 +1,28 @@
+﻿@model IEnumerable<todo.mvc.Models.TodoItem>
+
+<h2>To Do List</h2>
+
+<p><a asp-action="Create">Add New</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Complete?</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.IsComplete</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
